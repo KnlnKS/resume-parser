@@ -33,3 +33,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# SEO
+public/robots.txt
+public/sitemap.xml
