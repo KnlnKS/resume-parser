@@ -1,6 +1,6 @@
-import { ExternalLinkIcon } from '@chakra-ui/icons';
-import { Box, Center, Heading, Link, Text } from '@chakra-ui/react';
-import React from 'react';
+import { ExternalLinkIcon } from "@chakra-ui/icons";
+import { Box, Center, Heading, Link, Text } from "@chakra-ui/react";
+import React from "react";
 
 const TopBar = () => {
   return (
@@ -22,23 +22,23 @@ const TopBar = () => {
         </Text>
       </Box>
       <Box mb="4" mt="4" pl="20" pr="20">
-        Inspired by{' '}
+        Made with ❤️ by{" "}
         <Link
-          href="https://itsjafer.com/#/parser"
+          href="https://github.com/KnlnKS"
           bg="yellow.200"
           p={0.5}
           isExternal
         >
-          {`Jafer's Lever Parser`} <ExternalLinkIcon mx="2px" />
-        </Link>{' '}
-        and{' '}
+          KnlnKS <ExternalLinkIcon mx="2px" />
+        </Link>{" "}
+        and{" "}
         <Link
-          href="https://github.com/KnlnKS/lever-parser-extension"
+          href="https://github.com/kevin51jiang"
           bg="yellow.200"
           p={0.5}
           isExternal
         >
-          {`KnlnKS' Lever Extension`} <ExternalLinkIcon mx="2px" />
+          kevin51jiang <ExternalLinkIcon mx="2px" />
         </Link>
         .
       </Box>
