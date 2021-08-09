@@ -37,3 +37,7 @@ yarn-error.log*
 # SEO
 public/robots.txt
 public/sitemap.xml
+
+# PWA
+public/*.js
+public/*.js.map
