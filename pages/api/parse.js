@@ -1,6 +1,5 @@
 import formidable from "formidable";
 import FormData from "form-data";
-import os from "os";
 import fs from "fs";
 
 export const config = {
