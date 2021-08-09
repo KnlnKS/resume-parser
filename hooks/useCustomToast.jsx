@@ -1,4 +1,5 @@
 import { useToast } from '@chakra-ui/react';
+import { MAX_FILE_SIZE, TOAST_DURATION } from "../constants"
 
 const useCustomToast = () => {
   const toast = useToast();
@@ -7,7 +8,7 @@ const useCustomToast = () => {
     toast({
       title: 'Resume successfully parsed!',
       status: 'success',
-      duration: 3000,
+      duration: TOAST_DURATION,
       isClosable: true,
     });
   const errorToast = err =>
@@ -15,15 +16,15 @@ const useCustomToast = () => {
       title: 'Resume parsing failed!',
       description: JSON.stringify(err.message),
       status: 'error',
-      duration: 3000,
+      duration: TOAST_DURATION,
       isClosable: true,
     });
   const fileSizeErrorToast = () =>
     toast({
       title: 'Resume upload error!',
-      description: 'File too big. Maximum size of 9MB.',
+      description: `File too big. Maximum size of ${MAX_FILE_SIZE}MB.`,
       status: 'error',
-      duration: 3000,
+      duration: TOAST_DURATION,
       isClosable: true,
     });
 
