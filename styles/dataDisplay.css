@@ -20,7 +20,7 @@ input[type='file'] {
   border-color: initial;
   overflow: hidden !important;
   border-radius: initial;
-  text-indent: -999em;
+
   height: 100%;
   position: absolute;
   top: 0;
