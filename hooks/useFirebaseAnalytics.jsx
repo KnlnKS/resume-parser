@@ -1,12 +1,11 @@
 import { useEffect } from "react";
-import { firebase } from "../constants";
+import { FIREBASE } from "../constants";
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 const useFirebaseAnalytics = (message) => {
-  const { analytics } = firebase;
-
   useEffect(() => {
-    if (message) analytics().logEvent(message);
-  }, []);
+    if (message) logEvent(getAnalytics(FIREBASE), message);
+  }, [message]);
 };
 
 export default useFirebaseAnalytics;
