@@ -27,11 +27,11 @@ const Header = () => (
     />
     <meta
       property="og:image"
-      content="https://resume-parser.vercel.app/preview.png"
+      content="https://resume-parser.vercel.app/preview.jpeg"
     />
     <meta
       property="twitter:card"
-      content="https://resume-parser.vercel.app/preview.png"
+      content="https://resume-parser.vercel.app/preview.jpeg"
     />
     <meta property="twitter:url" content="https://resume-parser.vercel.app/" />
     <meta property="twitter:title" content="Resume Parser" />
@@ -41,7 +41,7 @@ const Header = () => (
     />
     <meta
       property="twitter:image"
-      content="https://resume-parser.vercel.app/preview.png"
+      content="https://resume-parser.vercel.app/preview.jpeg"
     />
   </Head>
 );
