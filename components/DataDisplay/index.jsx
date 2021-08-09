@@ -52,16 +52,12 @@ const DataDisplay = () => {
     })
       .then(handleErrors)
       .then((response) => response.json())
-      .then((data) => {
-        console.log("data", data);
-        setParsedData({ file: file.name, ...data });
-      })
+      .then((data) => setParsedData({ file: file.name, ...data }))
       .then(() => {
         setParseStatus("success");
         successToast();
       })
       .catch((err) => {
-        console.error("error", err);
         setParseStatus("error");
         errorToast(err);
       });

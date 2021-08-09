@@ -48,7 +48,6 @@ export default async function handler(req, res) {
   })
     .then((response) => {
       if (!response.ok) {
-        console.log("Response not OK. ", response, response.headers.raw());
         res.status(response.status).send(response.statusText);
         return;
       } else {
