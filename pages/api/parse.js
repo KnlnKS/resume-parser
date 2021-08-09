@@ -23,11 +23,13 @@ export default async function handler(req, res) {
     });
   });
 
-  const {
-    resume: { path },
-  } = files;
+  if (!files.resume.path) {
+    res.status(400).send("No resume uploaded!");
+    return;
+  }
+
   const formData = new FormData();
-  formData.append("resume", fs.createReadStream(path));
+  formData.append("resume", fs.createReadStream(files.resume.path));
 
   fetch("https://jobs.lever.co/parseResume", {
     method: "POST",
