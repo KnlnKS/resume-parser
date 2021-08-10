@@ -4,7 +4,7 @@ import TopBar from "../components/TopBar";
 import { useAnalytics } from "../hooks";
 
 export default function Home() {
-  useAnalytics("page_view");
+  useAnalytics("Page View");
   return (
     <>
       <Header />
