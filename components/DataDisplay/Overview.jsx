@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import { Table, Tbody, Tr, Td, Heading, Link } from '@chakra-ui/react';
-import { ExternalLinkIcon } from '@chakra-ui/icons';
+import { Table, Tbody, Tr, Td, Heading, Link } from "@chakra-ui/react";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 import { timestampToDate } from "../../functions";
+import { useAnalytics } from "../../hooks";
 
 const Overview = ({ data }) => {
+  useAnalytics("Resume View");
   return (
     <>
       <Heading as="h2" size="lg" mb={2}>
@@ -16,15 +18,15 @@ const Overview = ({ data }) => {
           {/* <!-- Summary --> */}
           <Tr>
             <Td className="category">Name(s)</Td>
-            <Td colSpan="3">{data?.names?.join(', ') || 'none'}</Td>
+            <Td colSpan="3">{data?.names?.join(", ") || "none"}</Td>
           </Tr>
           <Tr>
             <Td className="category">Executive Summary</Td>
-            <Td colSpan="3">{data?.summary?.executiveSummary || 'none'}</Td>
+            <Td colSpan="3">{data?.summary?.executiveSummary || "none"}</Td>
           </Tr>
           <Tr>
             <Td className="category">Skills</Td>
-            <Td colSpan="3">{data?.summary?.skills || 'none'}</Td>
+            <Td colSpan="3">{data?.summary?.skills || "none"}</Td>
           </Tr>
           {/* <!-- Overview --> */}
           <Tr>
@@ -36,11 +38,11 @@ const Overview = ({ data }) => {
           <Tr>
             <Td className="category">Emails</Td>
             <Td>
-              {data?.emails?.map(email => email.value)?.join(', ') || 'none'}
+              {data?.emails?.map((email) => email.value)?.join(", ") || "none"}
             </Td>
             <Td className="category">Phones</Td>
             <Td>
-              {data?.phones?.map(phone => phone.value)?.join(', ') || 'none'}
+              {data?.phones?.map((phone) => phone.value)?.join(", ") || "none"}
             </Td>
           </Tr>
           <Tr>
@@ -48,12 +50,12 @@ const Overview = ({ data }) => {
             <Td colSpan="3">
               {data?.links?.map((link, i) => (
                 <span key={i}>
-                  {i > 0 && ',  '}
+                  {i > 0 && ",  "}
                   <Link href={link.url} isExternal>
                     {link.url} <ExternalLinkIcon mx="2px" />
                   </Link>
                 </span>
-              )) || 'none'}
+              )) || "none"}
             </Td>
           </Tr>
           <Tr>

@@ -1,5 +1,5 @@
 import useCustomToast from './useCustomToast';
-import useFirebaseAnalytics from './useFirebaseAnalytics';
+import useCustomAnalytics from './useCustomAnalytics';
 
 export const useToast = useCustomToast;
-export const useAnalytics = useFirebaseAnalytics;
+export const useAnalytics = useCustomAnalytics;
