@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     if (err) {
       return res.status(500).send({ message: `Error logging ${event} event.` });
     }
-    console.log(err ? err : data);
+    console.log(err ? err : `Logged ${data} ${event} events.`);
   });
   client.quit();
 
