@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import fetch from "node-fetch";
 
 import { ANALYTICS_URL } from "../constants";
 
