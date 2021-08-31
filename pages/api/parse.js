@@ -31,7 +31,7 @@ export default async function handler(req, res) {
   const formData = new FormData();
   formData.append("resume", fs.createReadStream(files.resume.path));
 
-  fetch("https://jobs.lever.co/parseResume", {
+  await fetch("https://jobs.lever.co/parseResume", {
     method: "POST",
     headers: {
       Origin: "https://jobs.lever.co",
@@ -43,16 +43,9 @@ export default async function handler(req, res) {
       if (!response.ok) {
         res.status(response.status).send(response.statusText);
         return;
-      } else {
-        return response.json();
       }
+      return response.json();
     })
-    .then((response) => {
-      if (response) {
-        res.json(response);
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+    .then((response) => response && res.json(response))
+    .catch(console.error);
 }
