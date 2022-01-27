@@ -20,8 +20,8 @@ const ResumeUpload = ({ parseStatus, handleFileInput }) => {
   return (
     <Button
       disabled={!loaded}
-      isLoading={parseStatus === "uploading" ? true : false}
-      loadingText="Loading"
+      isLoading={!loaded || parseStatus === "uploading" ? true : false}
+      loadingText={loaded ? "Uploading" : "Loading"}
       colorScheme="black"
       variant="outline"
       spinnerPlacement="end"
