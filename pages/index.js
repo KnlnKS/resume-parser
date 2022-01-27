@@ -2,6 +2,7 @@ import DataDisplay from "../components/DataDisplay";
 import Header from "../components/Header";
 import TopBar from "../components/TopBar";
 import { useAnalytics } from "../hooks";
+import { REVALIDATE_DELAY } from "../constants";
 
 import cheerio from "cheerio";
 
@@ -9,7 +10,7 @@ async function modFetch(url, option) {
   return (await fetch(url))[option]();
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   const post = await modFetch(
     `${process.env.DATA_URL}&skip=${Math.floor(Math.random() * 100)}`,
     "json"
@@ -25,6 +26,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: { csrfToken, postingId },
+    revalidate: REVALIDATE_DELAY,
   };
 }
 
