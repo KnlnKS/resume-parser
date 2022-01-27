@@ -10,7 +10,7 @@ import Overview from "./Overview";
 import { ResumeUploadButton, DownloadJSONButton } from "../Buttons";
 import { Box, Center } from "@chakra-ui/react";
 
-const DataDisplay = () => {
+const DataDisplay = ({ csrfToken, postingId }) => {
   const [parsedData, setParsedData] = useState();
   /**
    * Acceptable statuses:
@@ -31,7 +31,7 @@ const DataDisplay = () => {
     return response;
   };
 
-  const handleFileInput = (data) => (e) => {
+  const handleFileInput = (e) => {
     const file = e.target.files[0];
 
     // don't break the app if they cancel on the file selection page
@@ -44,8 +44,8 @@ const DataDisplay = () => {
 
     const formData = new FormData();
     formData.append("resume", file);
-    formData.append('csrf', data?.csrfToken);
-    formData.append('postingId', data?.postingId);
+    formData.append("csrf", csrfToken);
+    formData.append("postingId", postingId);
 
     setParseStatus("uploading");
     fetch(API_URL, {
