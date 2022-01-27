@@ -1,4 +1,5 @@
 import cheerio from "cheerio";
+import Cryptr from "cryptr";
 
 async function modFetch(url, option) {
   return await (await fetch(url))[option]();
@@ -21,8 +22,9 @@ export default async function handler(req, res) {
   if (!data) res.status(500).send({ message: "error" });
 
   const $ = cheerio.load(data);
-  const csrfToken = $("#csrf-token")["0"].attribs.value;
-  const postingId = $("#posting-id")["0"].attribs.value;
+  const cryptr = new Cryptr(process.env.SECRET_KEY);
+  const csrfToken = cryptr.encrypt($("#csrf-token")["0"].attribs.value);
+  const postingId = cryptr.encrypt($("#posting-id")["0"].attribs.value);
 
   res.status(200).send({ csrfToken, postingId });
 }
