@@ -6,7 +6,7 @@ import { useAnalytics } from "../hooks";
 import cheerio from "cheerio";
 
 async function modFetch(url, option) {
-  return await (await fetch(url))[option]();
+  return (await fetch(url))[option]();
 }
 
 export async function getServerSideProps(context) {
