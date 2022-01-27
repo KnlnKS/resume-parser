@@ -31,7 +31,7 @@ const DataDisplay = () => {
     return response;
   };
 
-  const handleFileInput = (e) => {
+  const handleFileInput = (data) => (e) => {
     const file = e.target.files[0];
 
     // don't break the app if they cancel on the file selection page
@@ -44,6 +44,8 @@ const DataDisplay = () => {
 
     const formData = new FormData();
     formData.append("resume", file);
+    formData.append('csrf', data?.csrfToken);
+    formData.append('postingId', data?.postingId);
 
     setParseStatus("uploading");
     fetch(API_URL, {
