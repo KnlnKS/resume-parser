@@ -15,7 +15,7 @@ export default async function handler(req, res) {
     return;
   }
 
-  const { files } = await new Promise(function (resolve, reject) {
+  const { fields, files } = await new Promise(function (resolve, reject) {
     const form = new formidable.IncomingForm({ keepExtensions: true });
     form.parse(req, function (err, fields, files) {
       if (err) return reject(err);
@@ -30,6 +30,8 @@ export default async function handler(req, res) {
 
   const formData = new FormData();
   formData.append("resume", fs.createReadStream(files.resume.path));
+  formData.append("csrf", fields?.csrf);
+  formData.append("postingId", fields?.postingId);
 
   await fetch("https://jobs.lever.co/parseResume", {
     method: "POST",
