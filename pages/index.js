@@ -11,7 +11,7 @@ async function modFetch(url, option) {
 
 export async function getServerSideProps(context) {
   const post = await modFetch(
-    `${process.env.DATA_URL}&skip=${Math.floor(Math.random() * 20)}`,
+    `${process.env.DATA_URL}&skip=${Math.floor(Math.random() * 100)}`,
     "json"
   );
   if (!post) res.status(500).send({ message: "error" });
