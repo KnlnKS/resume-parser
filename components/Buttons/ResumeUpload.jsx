@@ -19,9 +19,8 @@ const ResumeUpload = ({ parseStatus, handleFileInput }) => {
 
   return (
     <Button
-      disabled={!loaded}
-      isLoading={!loaded || parseStatus === "uploading" ? true : false}
-      loadingText={loaded ? "Uploading" : "Loading"}
+      isLoading={parseStatus === "uploading" ? true : false}
+      loadingText={"Loading"}
       colorScheme="black"
       variant="outline"
       spinnerPlacement="end"
@@ -29,14 +28,12 @@ const ResumeUpload = ({ parseStatus, handleFileInput }) => {
     >
       <span>
         Upload resume (docx or pdf)
-        {loaded && (
-          <input
-            name="resume"
-            tabIndex="-1"
-            type="file"
-            onChange={handleFileInput(data)}
-          />
-        )}
+        <input
+          name="resume"
+          tabIndex="-1"
+          type="file"
+          onChange={handleFileInput(data, loaded)}
+        />
       </span>
     </Button>
   );

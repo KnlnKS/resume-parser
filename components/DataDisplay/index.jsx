@@ -31,7 +31,10 @@ const DataDisplay = () => {
     return response;
   };
 
-  const handleFileInput = (data) => (e) => {
+  const handleFileInput = (data, loaded) => async (e) => {
+    // busy wait for token
+    while (!loaded) {}
+
     const file = e.target.files[0];
 
     // don't break the app if they cancel on the file selection page
@@ -44,8 +47,8 @@ const DataDisplay = () => {
 
     const formData = new FormData();
     formData.append("resume", file);
-    formData.append('csrf', data?.csrfToken);
-    formData.append('postingId', data?.postingId);
+    formData.append("csrf", data?.csrfToken);
+    formData.append("postingId", data?.postingId);
 
     setParseStatus("uploading");
     fetch(API_URL, {
