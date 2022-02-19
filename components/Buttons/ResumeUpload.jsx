@@ -26,7 +26,7 @@ const ResumeUpload = ({ parseStatus, handleFileInput }) => {
       spinnerPlacement="end"
       mr="5"
     >
-      <span>
+      <label>
         Upload resume (docx or pdf)
         <input
           name="resume"
@@ -34,7 +34,7 @@ const ResumeUpload = ({ parseStatus, handleFileInput }) => {
           type="file"
           onChange={handleFileInput(data, loaded)}
         />
-      </span>
+      </label>
     </Button>
   );
 };
