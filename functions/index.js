@@ -8,6 +8,7 @@ export const timestampToDate = (timestamp) => {
 
   if (!isNaN(readableDate)) {
     return readableDate.toLocaleDateString(window.navigator.language, {
+      timeZone: "UTC",
       year: "numeric",
       month: "long",
       day: "numeric",
