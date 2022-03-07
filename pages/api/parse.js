@@ -46,7 +46,14 @@ export default async function handler(req, res) {
   })
     .then((response) => {
       if (!response.ok) {
-        res.status(response.status).send(response.statusText);
+        res
+          .status(response.status)
+          .send(
+            response.status == 500
+              ? "Could not parse resume"
+              : "Could not connect to Lever"
+          );
+
         return;
       }
       return response.json();
