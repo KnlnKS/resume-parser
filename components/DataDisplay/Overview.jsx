@@ -15,31 +15,21 @@ const Overview = ({ data }) => (
         {/* <!-- Summary --> */}
         <Tr>
           <Td className="category">Name(s)</Td>
-          <Td colSpan="3">{data?.names?.join(", ") || "none"}</Td>
+          <Td colSpan="3">{data?.name || "none"}</Td>
         </Tr>
         <Tr>
-          <Td className="category">Executive Summary</Td>
-          <Td colSpan="3">{data?.summary?.executiveSummary || "none"}</Td>
-        </Tr>
-        <Tr>
-          <Td className="category">Skills</Td>
-          <Td colSpan="3">{data?.summary?.skills || "none"}</Td>
+          <Td className="category">Last Position</Td>
+          <Td colSpan="3">{data?.position || "none"}</Td>
         </Tr>
         {/* <!-- Overview --> */}
         <Tr>
-          <Td className="category">Created At</Td>
-          <Td>{timestampToDate(data?.createdAt)}</Td>
-          <Td className="category">Last Story At</Td>
-          <Td>{timestampToDate(data?.lastStoryAt)}</Td>
-        </Tr>
-        <Tr>
-          <Td className="category">Emails</Td>
+          <Td className="category">Email</Td>
           <Td>
-            {data?.emails?.map((email) => email.value)?.join(", ") || "none"}
+            {data?.email || "none"}
           </Td>
-          <Td className="category">Phones</Td>
+          <Td className="category">Phone</Td>
           <Td>
-            {data?.phones?.map((phone) => phone.value)?.join(", ") || "none"}
+            {data?.phone || "none"}
           </Td>
         </Tr>
         <Tr>
@@ -53,17 +43,6 @@ const Overview = ({ data }) => (
                 </Link>
               </span>
             )) || "none"}
-          </Td>
-        </Tr>
-        <Tr>
-          <Td className="category">Location</Td>
-          <Td colSpan="3">{data?.location?.name}</Td>
-        </Tr>
-        <Tr>
-          <Td className="category">Work Time</Td>
-          <Td colSpan="3">
-            {data?.summary?.workTime?.years} Years or
-            {data?.summary?.workTime?.months} months
           </Td>
         </Tr>
       </Tbody>

@@ -79,8 +79,6 @@ const DataDisplay = () => {
         <Center bg="whitesmoke" w="90vw" p="4" m="auto" mt="10" mb="10">
           <Box>
             <Overview data={parsedData} />
-            <Education data={parsedData?.schools} />
-            <Positions data={parsedData?.positions} />
           </Box>
         </Center>
       ) : (
