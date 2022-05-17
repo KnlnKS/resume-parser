@@ -3,8 +3,6 @@ import React from "react";
 import { Table, Tbody, Tr, Td, Heading, Link } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 
-import { timestampToDate } from "../../functions";
-
 const Overview = ({ data }) => (
   <>
     <Heading as="h2" size="lg" mb={2}>
@@ -24,13 +22,9 @@ const Overview = ({ data }) => (
         {/* <!-- Overview --> */}
         <Tr>
           <Td className="category">Email</Td>
-          <Td>
-            {data?.email || "none"}
-          </Td>
+          <Td>{data?.email || "none"}</Td>
           <Td className="category">Phone</Td>
-          <Td>
-            {data?.phone || "none"}
-          </Td>
+          <Td>{data?.phone || "none"}</Td>
         </Tr>
         <Tr>
           <Td className="category">Links</Td>

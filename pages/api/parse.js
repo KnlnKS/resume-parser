@@ -1,7 +1,6 @@
 import formidable from "formidable";
 import FormData from "form-data";
 import fs from "fs";
-import Cryptr from "cryptr";
 
 export const config = {
   api: {
@@ -31,10 +30,6 @@ export default async function handler(req, res) {
 
   const formData = new FormData();
   formData.append("resume", fs.createReadStream(files.resume.path));
-
-  const cryptr = new Cryptr(process.env.SECRET_KEY);
-  formData.append("csrf", cryptr.decrypt(fields?.csrf));
-  formData.append("postingId", cryptr.decrypt(fields?.postingId));
 
   await fetch("https://jobs.lever.co/parseResume", {
     method: "POST",

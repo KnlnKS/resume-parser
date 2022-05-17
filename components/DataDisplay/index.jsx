@@ -3,9 +3,6 @@ import React, { useState } from "react";
 import { API_URL, MAX_FILE_SIZE } from "../../constants";
 import { useToast } from "../../hooks";
 
-import Positions from "./Positions";
-import Education from "./Education";
-
 import Overview from "./Overview";
 import { ResumeUploadButton, DownloadJSONButton } from "../Buttons";
 import { Box, Center } from "@chakra-ui/react";
@@ -31,10 +28,7 @@ const DataDisplay = () => {
     return response;
   };
 
-  const handleFileInput = (data, loaded) => async (e) => {
-    // busy wait for token
-    while (!loaded) {}
-
+  const handleFileInput = async (e) => {
     const file = e.target.files[0];
 
     // don't break the app if they cancel on the file selection page
@@ -47,8 +41,6 @@ const DataDisplay = () => {
 
     const formData = new FormData();
     formData.append("resume", file);
-    formData.append("csrf", data?.csrfToken);
-    formData.append("postingId", data?.postingId);
 
     setParseStatus("uploading");
     fetch(API_URL, {
